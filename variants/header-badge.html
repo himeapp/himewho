@@ -21,6 +21,7 @@
       --lh-readable: 1.45;
       --text-card-title: rgba(238, 240, 245, 0.76);
       --text-card-sub: rgba(139, 146, 160, 0.52);
+      --card-min-height: 7.75rem;
     }
     * { box-sizing: border-box; }
     body {
@@ -88,7 +89,7 @@
       align-items: stretch;
       padding: 0;
       overflow: hidden;
-      min-height: 0;
+      min-height: var(--card-min-height);
       background: var(--surface);
       border-radius: var(--radius);
       color: inherit;
