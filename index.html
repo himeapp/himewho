@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>서비스 모음</title>
+  <title>himeapp</title>
   <style>
     :root {
-      --bg: #0f1115;
-      --surface: #1a1d24;
-      --text: #e8eaef;
-      --muted: #8b919c;
+      --bg: #0c0e12;
+      --surface: #161a22;
+      --text: #eef0f5;
+      --muted: #8b92a0;
       --accent: #7c9cff;
-      --accent-dim: rgba(124, 156, 255, 0.15);
+      --accent-dim: rgba(124, 156, 255, 0.12);
       --radius: 12px;
     }
     * {
@@ -21,32 +21,45 @@
       margin: 0;
       min-height: 100dvh;
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: var(--bg);
+      background: radial-gradient(ellipse 120% 80% at 50% -20%, rgba(124, 156, 255, 0.08), transparent 55%), var(--bg);
       color: var(--text);
       line-height: 1.5;
-      padding: clamp(1.5rem, 5vw, 3rem);
+      padding: clamp(1.75rem, 6vw, 3rem);
+      display: flex;
+      flex-direction: column;
     }
     main {
       max-width: 36rem;
       margin: 0 auto;
+      width: 100%;
+      flex: 1;
     }
-    h1 {
-      font-size: clamp(1.5rem, 4vw, 1.75rem);
+    .site-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .brand {
+      margin: 0 0 1rem;
+      font-size: 0.8125rem;
       font-weight: 600;
-      margin: 0 0 0.5rem;
-      letter-spacing: -0.02em;
-    }
-    p.lead {
-      margin: 0 0 2rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-    p.lead a {
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       color: var(--accent);
-      text-decoration: none;
     }
-    p.lead a:hover {
-      text-decoration: underline;
+    .page-title {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.625rem, 4.5vw, 2rem);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+    .page-subtitle {
+      margin: 0;
+      max-width: 28ch;
+      font-size: 0.9375rem;
+      color: var(--muted);
+      font-weight: 400;
     }
     ul {
       list-style: none;
@@ -80,14 +93,30 @@
       color: var(--muted);
       word-break: break-all;
     }
+    .site-footer {
+      max-width: 36rem;
+      margin: 2.5rem auto 0;
+      width: 100%;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.8125rem;
+    }
+    .site-footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .site-footer a:hover {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
   <main>
-    <h1>만든 서비스</h1>
-    <p class="lead">
-      <a href="https://www.instagram.com/himeisreal/" target="_blank" rel="noopener noreferrer">@himeisreal</a>
-    </p>
+    <header class="site-header">
+      <p class="brand">himeapp</p>
+      <h1 class="page-title">만든 서비스</h1>
+      <p class="page-subtitle">웹으로 만든 작은 도구들이에요. 잠깐 들러 쉬어 가도 좋아요.</p>
+    </header>
     <ul>
       <li>
         <a class="card" href="https://himeapp.github.io/pensive-web/mind-cleanse.html" target="_blank" rel="noopener noreferrer">
@@ -103,5 +132,8 @@
       </li>
     </ul>
   </main>
+  <footer class="site-footer">
+    <a href="https://www.instagram.com/himeisreal/" target="_blank" rel="noopener noreferrer">Instagram · @himeisreal</a>
+  </footer>
 </body>
 </html>
