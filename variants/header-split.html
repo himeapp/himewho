@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>himeapp</title>
+  <title>himeapp — 만든 서비스 (스플릿)</title>
   <style>
     :root {
       --bg: #0c0e12;
@@ -16,6 +16,7 @@
       --fs-meta: 0.6875rem;
       --fs-card-sub: 0.8125rem;
       --fs-card-title: 0.9375rem;
+      --fs-heading: clamp(1.2rem, 3.2vw, 1.4rem);
       --lh-snug: 1.35;
       --lh-readable: 1.45;
       --text-card-title: rgba(238, 240, 245, 0.76);
@@ -39,39 +40,34 @@
       padding-bottom: 1.75rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
-    /* C: 워드마크 우선 — 큰 브랜드 + 작은 섹션 라벨(개성 유지). 카드만 공통 스케일. */
-    .header-c {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
+    /* B: 좌측 악센트 바 + 한 블록 — 브랜드/섹션이 ‘한 카드’처럼 읽힘 */
+    .header-b {
+      display: grid;
+      grid-template-columns: 3px 1fr;
+      gap: 1.15rem;
+      align-items: start;
     }
-    .header-c .wordmark {
-      margin: 0;
-      font-size: clamp(1.68rem, 5.4vw, 2.1rem);
-      font-weight: 620;
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-      background: linear-gradient(105deg, #f0f2f8 0%, var(--accent) 55%, #b8c9ff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .header-b .accent-bar {
+      width: 3px;
+      align-self: stretch;
+      min-height: 3.25rem;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--accent), rgba(124, 156, 255, 0.25));
     }
-    .header-c h1.section-label {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.6875rem;
+    .header-b .brand {
+      margin: 0 0 0.35rem;
+      font-size: var(--fs-meta);
       font-weight: 600;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--accent);
     }
-    .header-c h1.section-label::before {
-      content: "";
-      width: 1.25rem;
-      height: 1px;
-      background: rgba(139, 146, 160, 0.45);
+    .header-b .page-title {
+      margin: 0;
+      font-size: var(--fs-heading);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: var(--lh-snug);
     }
     ul {
       list-style: none;
@@ -106,7 +102,6 @@
       border-right: 1px solid rgba(255, 255, 255, 0.06);
       align-self: stretch;
       min-height: 4.25rem;
-      overflow: hidden;
     }
     .card-thumb img {
       display: block;
@@ -114,34 +109,26 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transform: scale(1.52);
-    }
-    .card-thumb.thumb-mind img {
-      transform: scale(2.05);
     }
     .card-body {
       flex: 1;
       min-width: 0;
       min-height: 0;
-      padding: 0.9rem 1rem;
+      padding: 1.175rem 1.35rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
     a.card strong {
       display: block;
-      font-size: var(--fs-card-title);
-      font-weight: 560;
-      letter-spacing: -0.01em;
-      color: var(--text-card-title);
-      line-height: var(--lh-snug);
-      margin-bottom: 0.28rem;
+      font-size: 1.1875rem;
+      margin-bottom: 0.35rem;
     }
     a.card .card-sub {
       display: block;
-      font-size: var(--fs-card-sub);
-      color: var(--text-card-sub);
-      line-height: var(--lh-readable);
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.5;
     }
     a.card .pet-wrap {
       display: inline-block;
@@ -173,15 +160,18 @@
 </head>
 <body>
   <main>
-    <header class="site-header header-c">
-      <p class="wordmark">himeapp</p>
-      <h1 class="section-label">만든 서비스</h1>
+    <header class="site-header header-b">
+      <div class="accent-bar" aria-hidden="true"></div>
+      <div>
+        <p class="brand">himeapp</p>
+        <h1 class="page-title">만든 서비스</h1>
+      </div>
     </header>
     <ul>
       <li>
         <a class="card" href="https://himeapp.github.io/pensive-web/mind-cleanse.html" target="_blank" rel="noopener noreferrer">
-          <div class="card-thumb thumb-mind" aria-hidden="true">
-            <img src="thumbnails/mind-cleanse.png" alt="" width="320" height="180" loading="lazy" decoding="async" />
+          <div class="card-thumb" aria-hidden="true">
+            <img src="../thumbnails/mind-cleanse.png" alt="" width="320" height="180" loading="lazy" decoding="async" />
           </div>
           <div class="card-body">
             <strong>마음 정화 공간</strong>
@@ -192,7 +182,7 @@
       <li>
         <a class="card" href="https://taro-web-sigma.vercel.app/" target="_blank" rel="noopener noreferrer">
           <div class="card-thumb" aria-hidden="true">
-            <img src="thumbnails/taro-web.png" alt="" width="320" height="180" loading="lazy" decoding="async" />
+            <img src="../thumbnails/taro-web.png" alt="" width="320" height="180" loading="lazy" decoding="async" />
           </div>
           <div class="card-body">
             <strong>타로 보기</strong>
