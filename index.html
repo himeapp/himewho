@@ -14,8 +14,8 @@
       --accent-dim: rgba(124, 156, 255, 0.12);
       --radius: 12px;
       --fs-meta: 0.6875rem;
-      --fs-card-sub: 0.8125rem;
-      --fs-card-title: 0.9375rem;
+      --fs-card-sub: 0.75rem;
+      --fs-card-title: 0.875rem;
       --lh-snug: 1.35;
       --lh-readable: 1.45;
       --text-card-title: rgba(238, 240, 245, 0.76);
@@ -23,7 +23,7 @@
       --card-min-height: 7.75rem;
       --card-thumb-w: 9rem;
       --card-body-pad-x: 1rem;
-      --card-app-icon-size: 4.85rem;
+      --card-app-icon-size: 5.35rem;
     }
     * { box-sizing: border-box; }
     body {
@@ -51,7 +51,7 @@
     }
     .header-c .wordmark {
       margin: 0;
-      font-size: clamp(1.68rem, 5.4vw, 2.1rem);
+      font-size: clamp(1.5rem, 4.8vw, 1.9rem);
       font-weight: 620;
       letter-spacing: -0.04em;
       line-height: 1.05;
@@ -65,7 +65,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.6875rem;
+      font-size: 0.625rem;
       font-weight: 600;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -224,6 +224,24 @@
       transition: color 0.15s ease;
     }
     .site-footer a:hover { color: rgba(139, 146, 160, 0.72); }
+
+    /* 모바일: 썸네일 열·앱 아이콘 영역 축소 (가운데 정렬 로직은 동일) */
+    @media (max-width: 480px) {
+      :root {
+        --card-thumb-w: 5.75rem;
+        --card-app-icon-size: 3.65rem;
+        --card-min-height: 6rem;
+      }
+      .card-thumb {
+        min-height: 3rem;
+      }
+      .card-thumb img {
+        transform: scale(1.35);
+      }
+      .card-thumb.thumb-mind img {
+        transform: scale(1.78);
+      }
+    }
   </style>
 </head>
 <body>
