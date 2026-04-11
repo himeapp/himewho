@@ -254,7 +254,7 @@
         </a>
       </li>
       <li>
-        <div class="card card--app card--app-mantra" role="group" aria-label="명상 생활 - Mantra Reminder (iOS)">
+        <a href="#" class="card card--app card--app-mantra" aria-label="명상 생활 - Mantra Reminder (iOS)">
           <div class="card-app-thumb-slot" aria-hidden="true">
             <div class="card-app-icon">
               <img src="thumbnails/mantra-reminder.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" />
@@ -264,10 +264,10 @@
             <strong>명상 생활 - Mantra Reminder (iOS)</strong>
             <span class="card-sub">매일 같은 시간에 만트라 알림을 받아요</span>
           </div>
-        </div>
+        </a>
       </li>
       <li>
-        <div class="card card--app card--app-ant" role="group" aria-label="개미 풀기 Ant Invader (Android)">
+        <a href="#" class="card card--app card--app-ant" aria-label="개미 풀기 Ant Invader (Android)">
           <div class="card-app-thumb-slot" aria-hidden="true">
             <div class="card-app-icon">
               <img src="thumbnails/ant-invader.png" alt="" width="588" height="588" loading="lazy" decoding="async" />
@@ -277,12 +277,20 @@
             <strong>개미 풀기 Ant Invader (Android)</strong>
             <span class="card-sub">doom scrolling? 개미 떼와 함께하세요</span>
           </div>
-        </div>
+        </a>
       </li>
     </ul>
   </main>
   <footer class="site-footer">
     <a href="https://www.instagram.com/himeisreal/" target="_blank" rel="noopener noreferrer">@himeisreal</a>
   </footer>
+  <script>
+    document.querySelectorAll("a.card--app").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        alert("심사 중이에요.. 기다려 주세요!");
+      });
+    });
+  </script>
 </body>
 </html>
