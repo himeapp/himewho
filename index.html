@@ -129,7 +129,7 @@
       box-sizing: border-box;
       width: var(--card-app-icon-size);
       height: var(--card-app-icon-size);
-      padding: 0.38rem;
+      padding: 0;
       border-radius: 1.12rem;
       overflow: hidden;
       background: #0a0c10;
@@ -142,21 +142,17 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
       transform: none;
     }
     .card--app-ant .card-app-icon {
       background: #000;
-    }
-    /* 명상: 완성된 앱 아이콘 PNG만 보이게 (배경·안쪽 여백 중복 제거) */
-    .card--app-mantra .card-app-icon {
-      padding: 0;
-      background: transparent;
       border-color: rgba(255, 255, 255, 0.1);
     }
-    .card--app-mantra .card-app-icon img {
-      object-fit: cover;
+    .card--app-mantra .card-app-icon {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.1);
     }
     .card-thumb {
       flex: 0 0 var(--card-thumb-w);
