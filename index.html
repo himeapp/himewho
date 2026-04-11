@@ -23,7 +23,7 @@
       --card-min-height: 7.75rem;
       --card-thumb-w: 9rem;
       --card-body-pad-x: 1rem;
-      --card-app-icon-size: 4.35rem;
+      --card-app-icon-size: 4.85rem;
     }
     * { box-sizing: border-box; }
     body {
@@ -126,31 +126,37 @@
     }
     .card-app-icon {
       flex: 0 0 auto;
+      box-sizing: border-box;
       width: var(--card-app-icon-size);
       height: var(--card-app-icon-size);
-      border-radius: 1.02rem;
+      padding: 0.38rem;
+      border-radius: 1.12rem;
       overflow: hidden;
       background: #0a0c10;
       border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .card-app-icon img {
       display: block;
       width: 100%;
       height: 100%;
+      object-fit: contain;
       object-position: center;
       transform: none;
     }
     .card--app-ant .card-app-icon {
       background: #000;
     }
-    .card--app-ant .card-app-icon img {
-      object-fit: contain;
-    }
+    /* 명상: 완성된 앱 아이콘 PNG만 보이게 (배경·안쪽 여백 중복 제거) */
     .card--app-mantra .card-app-icon {
-      background: radial-gradient(circle at 50% 42%, #ffffff 0%, #d4e4fb 55%, #a8c4ef 100%);
+      padding: 0;
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.1);
     }
     .card--app-mantra .card-app-icon img {
-      object-fit: contain;
+      object-fit: cover;
     }
     .card-thumb {
       flex: 0 0 var(--card-thumb-w);
