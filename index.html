@@ -242,6 +242,14 @@
       border-radius: 999px;
       border: 1px solid transparent;
       white-space: nowrap;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    button.platform-badge {
+      appearance: none;
+      -webkit-appearance: none;
     }
     .platform-badge--ios {
       color: #b4d4ff;
@@ -255,11 +263,19 @@
       border-color: rgba(200, 210, 230, 0.28);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
     }
+    .platform-badge--mac:hover {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(140, 150, 170, 0.12) 100%);
+      border-color: rgba(200, 210, 230, 0.5);
+    }
     .platform-badge--android {
       color: #9cf0c0;
       background: rgba(61, 220, 132, 0.12);
       border-color: rgba(61, 220, 132, 0.42);
       box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
+    }
+    .platform-badge--android:hover {
+      background: rgba(61, 220, 132, 0.2);
+      border-color: rgba(61, 220, 132, 0.6);
     }
     .card .card-sub {
       display: block;
@@ -318,22 +334,22 @@
           </div>
           <div class="card-body card-body--app">
             <strong><span class="card-app-title">명상 생활 - Mantra Reminder</span><span class="card-app-badges"><span class="platform-badge platform-badge--ios">for iOS</span></span></strong>
-            <span class="card-sub">만트라 알림을 받고 매일 기록해요</span>
+            <span class="card-sub">만트라 알림을 받고 알아차림으로 돌아와요</span>
           </div>
         </a>
       </li>
       <li>
-        <a href="#" class="card card--app card--app-ant" aria-label="개미 떼 Ant Invader, for Mac, for Android">
+        <div class="card card--app card--app-ant" aria-label="개미 떼 Ant Invader">
           <div class="card-app-thumb-slot" aria-hidden="true">
             <div class="card-app-icon">
               <img src="thumbnails/ant-invader.png" alt="" width="588" height="588" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="card-body card-body--app">
-            <strong><span class="card-app-title">개미 떼 Ant Invader</span><span class="card-app-badges"><span class="platform-badge platform-badge--mac">for Mac</span><span class="platform-badge platform-badge--android">for Android</span></span></strong>
+            <strong><span class="card-app-title">개미 떼 Ant Invader</span><span class="card-app-badges"><a href="https://apps.apple.com/kr/app/%EA%B0%9C%EB%AF%B8-%EB%96%BC-ant-invader/id6762187658?mt=12" class="platform-badge platform-badge--mac" target="_blank" rel="noopener noreferrer">for Mac</a><button type="button" class="platform-badge platform-badge--android" data-ant-android>for Android</button></span></strong>
             <span class="card-sub">당신의 화면에 개미들을 풀어보세요</span>
           </div>
-        </a>
+        </div>
       </li>
       <li>
         <a class="card" href="https://himeapp.github.io/pensive-web/mind-cleanse.html" target="_blank" rel="noopener noreferrer">
@@ -360,9 +376,8 @@
     </ul>
   </main>
   <script>
-    document.querySelectorAll("a.card--app-ant").forEach(function (el) {
-      el.addEventListener("click", function (e) {
-        e.preventDefault();
+    document.querySelectorAll("[data-ant-android]").forEach(function (el) {
+      el.addEventListener("click", function () {
         alert("심사 중이에요.. 기다려 주세요!");
       });
     });
