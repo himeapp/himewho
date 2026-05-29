@@ -74,6 +74,19 @@
     .header-c a.wordmark:hover {
       opacity: 0.92;
     }
+    .site-footer {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .contact-mail {
+      font-size: 0.62rem;
+      letter-spacing: 0.01em;
+      color: rgba(139, 146, 160, 0.22);
+      text-decoration: none;
+    }
+    .contact-mail:hover {
+      color: rgba(139, 146, 160, 0.5);
+    }
     .header-c h1.section-label {
       margin: 0;
       display: flex;
@@ -322,7 +335,7 @@
 <body>
   <main>
     <header class="site-header header-c">
-      <a class="wordmark" href="https://www.instagram.com/himeisreal/" target="_blank" rel="noopener noreferrer" aria-label="himeapp Instagram">himeapp</a>
+      <span class="wordmark">himeapp</span>
     </header>
     <ul>
       <li>
@@ -363,6 +376,9 @@
         </a>
       </li>
     </ul>
+    <footer class="site-footer">
+      <a class="contact-mail" href="mailto:himeggim@gmail.com">himeggim@gmail.com</a>
+    </footer>
   </main>
   <script>
     document.querySelectorAll("[data-ant-android]").forEach(function (el) {
